@@ -115,15 +115,13 @@
 
     oNext.onclick = function () {
         iNow++;
-        if (iNow > 3) {
-            iNow = 0;
-        }
+        iNow = iNow%aLi.length;
         changImg(iNow);
     };
     oPrev.onclick = function () {
         iNow--;
-        if (iNow < 0) {
-            iNow = 3;
+        if(iNow == -1){
+            iNow = aLi.length -1;
         }
         changImg(iNow);
     };
