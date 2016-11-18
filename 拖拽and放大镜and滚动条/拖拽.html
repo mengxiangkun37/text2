@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽练习</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #menu {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
+
+<div id="menu"></div>
+<script>
+    (function () {
+        var oMenu = document.getElementById("menu");
+        oMenu.onmousedown = function (e) {
+            e = e || window.event;
+            var left = e.clientX - oMenu.offsetLeft;
+            var top = e.clientY - oMenu.offsetTop;
+            document.onmousemove = function (e) {
+                e = e || window.event;
+                var ileft = e.clientX - left;
+                var itop = e.clientY - top;
+                oMenu.style.left = ileft + "px";
+                oMenu.style.top = itop + "px";
+            };
+            return false;
+        };
+        document.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    })();
+
+
+</script>
+</body>
+</html>
